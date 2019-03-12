@@ -1,0 +1,29 @@
+<h2>CKEditor 5 – Custom build</h2>
+
+<p><strong>Note:</strong> Open the console for additional logs.</p>
+
+<p>
+	<button (click)="toggleDisableEditors()">{{ isDisabled ? 'Enable editors' : 'Disable editors' }}</button>
+</p>
+
+<h3>Classic build</h3>
+<ckeditor
+	[data]="editorData"
+	[editor]="Editor"
+	[config]="{'clientId':'876482935799-m6n3931vvlqic888vmhdib1qekbe8m4v.apps.googleusercontent.com'}"
+	[disabled]="isDisabled"
+	id="classic-editor"
+	name="classic-editor"
+
+	(ready)="onReady($event)"
+	(change)="onChange($event)"
+	(focus)="onFocus($event)"
+	(blur)="onBlur($event)">
+</ckeditor>
+
+<h4>Component events:</h4>
+<ul>
+	<li *ngFor="let eventInfo of componentEvents">
+		<span>{{ eventInfo }}</span>
+	</li>
+</ul>
